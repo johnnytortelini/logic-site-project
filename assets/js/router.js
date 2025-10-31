@@ -15,7 +15,7 @@ async function loadView(viewName) {
     }
 }
 
-export function initRouter(defaultView = "home") {
+export function initRouter(defaultView = "introduction") {
     MAIN = document.getElementById("spa-root"); // assign here (DOM exists)
 
     document.querySelectorAll("[data-view]").forEach((navItem) => {

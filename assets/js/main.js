@@ -3,5 +3,5 @@ import { initRouter } from "./router.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     setupNavShadow();
-    initRouter("introduction");     // initialize SPA view swapping
+    initRouter();     // initialize SPA view swapping
 });
