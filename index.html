@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logic and Computer Addition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body class="">
+    <div class="nav-buttons">
+        <button class="nav-btn nav-link" data-section="intro">Introduction</button>
+        
+        <div class="dropdown">
+            <button class="nav-btn" id="dropdown-toggle-btn">Core Concepts ▼</button>
+            <div class="dropdown-content" id="core-concepts-dropdown">
+                <a class="dropdown-item nav-link" data-section="propositions">Propositions</a>
+                <a class="dropdown-item nav-link" data-section="operators">Logical Operators</a>
+                <a class="dropdown-item nav-link" data-section="truth-tables">Truth Tables</a>
+                <a class="dropdown-item nav-link" data-section="equivalence">Logical Equivalence</a>
+            </div>
+        </div>
+        
+        <div class="dropdown">
+            <button class="nav-btn active" id="dropdown-practice-btn">Practice Zone ▼</button>
+            <div class="dropdown-content" id="practice-dropdown">
+                <a class="dropdown-item nav-link" data-section="practice-quiz">Knowledge Check Quiz</a>
+                <a class="dropdown-item nav-link active" data-section="practice-builder">Truth Table Builder</a>
+            </div>
+        </div>
+        
+        <button class="nav-btn nav-link" data-section="resources">Resources</button>
+
+        <div class="dropdown">
+            <button class="nav-btn" id="dropdown-options-btn">Options ▼</button>
+            <div class="dropdown-content" id="options-dropdown">
+                <a class="dropdown-item" id="nav-about-us-toggle" href="#">About Us</a>
+                <a class="dropdown-item" id="nav-toggle-display-btn" href="#">Switch to T/F</a>
+                <a class="dropdown-item" id="nav-dark-mode-toggle" href="#">Switch to Dark Mode</a>
+            </div>
+        </div>
+        </div>
+
+    <div class="container">
+        <header>
+            <h1>Logic and Computer Addition</h1>
+            <p>Understanding Propositions, Logical Operators, and Truth Tables</p>
+        </header>
+
+        
+        <main id="main-content">
+            <div id="intro" class="content-section">
+                </div>
+
+            <div id="propositions" class="content-section">
+                </div>
+
+            <div id="operators" class="content-section">
+                </div>
+
+            <div id="truth-tables" class="content-section">
+                </div>
+
+            <div id="equivalence" class="content-section">
+                </div>
+            
+            <div id="practice-quiz" class="content-section">
+                </div>
+            
+            <div id="practice-builder" class="content-section active">
+                </div>
+            
+            <div id="resources" class="content-section">
+                </div>
+        </main> 
+
+        <footer>
+            </footer>
+    
+    </div> 
+    
+    <div id="about-us-modal" class="modal-overlay">
+        </div>
+    
+    <div id="cheatsheet-modal" class="modal-overlay">
+        </div>
+    
+    <script src="js/main.js" type="module"></script>
+
+</body>
+</html>
