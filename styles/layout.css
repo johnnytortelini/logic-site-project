@@ -5,17 +5,29 @@ body {
 }
 
 .container {
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px 20px 20px;
+    padding: 20px;
     border-radius: 8px;
     background: var(--color-bg-surface);
     box-shadow: 0 2px 10px var(--color-shadow);
 }
 
 .container.border-bottom {
-    border-bottom: 4px solid #005a9c; 
+    border-bottom: 4px solid var(--color-primary); 
 }
 
 .container.border-top {
-    border-top: 4px solid #005a9c; 
+    border-top: 4px solid var(--color-primary); 
+}
+
+header {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }

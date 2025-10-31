@@ -78,3 +78,23 @@ h4 {
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
 }
+
+@media (max-width: 768px) {
+    header h1 { font-size: 2.2em; }
+    header p { font-size: 1.1em; }
+    h2 { font-size: 1.9em; }
+    h3 { font-size: 1.4em; }
+    h4 { font-size: 1.2em; }
+    .nav-btn { font-size: 0.9em; }
+    .header-link-btn { font-size: 0.8em; }
+}
+
+@media (max-width: 480px) {
+    header h1 { font-size: 1.8em; }
+    header p { font-size: 1em; }
+    .header-link-btn { font-size: 0.75em; }
+    .nav-btn { font-size: 0.85em; }
+    h2 { font-size: 1.7em; }
+    h3 { font-size: 1.3em; }
+    h4 { font-size: 1.1em; }
+}
