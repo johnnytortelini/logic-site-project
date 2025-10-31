@@ -1,5 +1,5 @@
 /* --- Base Styles --- */
-        
+
 * {
     margin: 0;
     padding: 0;
@@ -7,12 +7,1095 @@
 }
 
 html {
-    /* ... all of your other CSS rules ... */
+   /* Adjust scroll padding based on final sticky nav height */
+   scroll-padding-top: 90px; /* Increased slightly for potential wrapping */
 }
 
+body {
+    font-family: 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7;
+    color: #2c3e50; 
+    background-color: #f4f7f6; 
+    min-height: 100vh;
+    /* Adjust padding-top based on final sticky nav height */
+    padding-top: 75px; /* Increased slightly */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Added for smooth dark mode transition */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 20px 20px; /* No top padding needed */
+}
+
+header {
+    background: #ffffff;
+    padding: 30px 40px;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 0; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    border-bottom: 4px solid #005a9c; 
+    position: relative; 
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+header h1 {
+    color: #004070; 
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    padding-top: 30px; /* Increased padding top */
+    transition: color 0.3s ease;
+}
+
+header p {
+    color: #555;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+/* --- Header Links --- */
+.header-links-container-left {
+    position: absolute;
+    top: 25px;
+    left: 30px; 
+}
+
+.header-links-container-right {
+    position: absolute;
+    top: 25px;
+    right: 30px; 
+}
+
+.header-link-btn { 
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #005a9c;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 0.9em; 
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    background: none; 
+    border: 1px solid #005a9c; 
+}
+
+.header-link-btn:hover {
+    background-color: #e6f0f7;
+}
+
+/* --- STICKY NAVIGATION STYLES --- */
+.nav-buttons {
+    position: sticky;
+    top: 0; 
+    background-color: #ffffff; 
+    padding: 15px 10px; 
+    margin: 0; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    z-index: 999; 
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-btn {
+    background: #e9ecef; 
+    color: #005a9c; 
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    background: #dcdfe2; 
+    transform: translateY(-2px);
+}
+
+.nav-btn.active {
+    background: #005a9c; 
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 90, 156, 0.2);
+}
+
+/* --- DROPDOWN STYLES --- */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none; 
+    position: absolute; 
+    background-color: #ffffff;
+    min-width: 240px; 
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    z-index: 1000; /* Ensure dropdown is above sticky nav shadow */
+    border: 1px solid #eee;
+    margin-top: 5px; 
+    overflow: hidden; 
+    /* Position dropdowns better on mobile */
+    left: 50%;
+    transform: translateX(-50%);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+/* Adjust positioning for dropdowns within the sticky nav */
+.nav-buttons .dropdown-content {
+     margin-top: 5px; /* Consistent spacing */
+}
+
+
+.dropdown-item {
+    color: #005a9c;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #f4f7f6; 
+}
+
+.dropdown-item.active {
+    background-color: #e6f0f7; 
+    color: #004070;
+}
+
+.dropdown-content.show {
+    display: block;
+    animation: fadeIn 0.2s ease-out;
+}
+
+/* --- CONTENT SECTION --- */
+.content-section {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-top: 5px solid #005a9c;
+    display: none;
+    margin-top: 20px; /* Add space between nav and first section */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+#main-content > .content-section:first-child {
+    margin-top: 0; /* Remove margin for the very first section */
+}
+
+
+.content-section.active {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #004070;
+    margin-bottom: 25px;
+    font-size: 2.2em;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #005a9c;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 1.6em;
+    transition: color 0.3s ease;
+}
+
+h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3em;
+    transition: color 0.3s ease;
+}
+
+/* --- Cards and Definitions --- */
+.operator-card, .definition, .example-box {
+     background: #fafafa;
+     padding: 20px;
+     margin: 20px 0;
+     border-radius: 8px;
+     border-left: 4px solid #005a9c;
+     transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.definition {
+     background: #e6f0f7; 
+}
+ .example-box {
+     background: #fdfdfd;
+     border-left-color: #6c757d; 
+     border: 1px solid #eee;
+ }
+
+.operator-card h4 {
+    color: #005a9c;
+    margin-bottom: 10px;
+}
+
+.definition p {
+    margin: 5px 0;
+}
+
+.definition strong {
+    color: #004070;
+    transition: color 0.3s ease;
+}
+
+/* --- Lists --- */
+ul {
+    margin-left: 25px;
+    margin-top: 10px;
+    padding-left: 0; /* Reset default padding */
+}
+
+li {
+    margin: 8px 0;
+}
+
+/* --- Tables --- */
+/* NEW: Table Wrapper for Scrolling */
+.table-wrapper {
+    overflow-x: auto;
+    margin: 20px 0; /* Add margin around the wrapper */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+table {
+    width: 100%;
+    /* Removed max-width, wrapper handles constraint */
+    border-collapse: collapse;
+    /* Removed margin, wrapper handles it */
+    margin: 0; 
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden; 
+    min-width: 300px; /* Ensure table has some minimum width */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+/* Style simple 2-col table differently if needed */
+#table-neg {
+     max-width: 200px; /* Can keep max-width on simple ones */
+}
+
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+    white-space: nowrap; /* Prevent text wrapping in cells */
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+th {
+    background: #004070; 
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+tr:nth-child(even) {
+    background: #f9f9ff;
+    transition: background-color 0.3s ease;
+}
+
+tr.highlighted {
+    background: #fffacd !important;
+    font-weight: bold;
+    border: 2px solid #ffc107;
+}
+
+.words-table {
+     min-width: 500px; /* Give words table more space */
+}
+
+/* --- Truth Values & Interactive Sections --- */
+.truth-value-true {
+    color: #28a745;
+}
+
+.truth-value-false {
+    color: #dc3545;
+}
+
+.interactive-table-section {
+    background: #f4f7f6;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    border: 2px solid #005a9c;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.table-controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.table-controls label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.reset-btn, .action-btn {
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+}
+.reset-btn {
+    background: #6c757d; 
+    color: white;
+}
+.action-btn {
+    background: #005a9c;
+    color: white;
+    font-weight: bold; /* Keep bold */
+}
+.action-btn:hover { background: #004070; }
+.reset-btn:hover { background: #5a6268; }
+
+/* --- TRUTH TABLE BUILDER --- */
+#builder-table-container table {
+    min-width: 600px; /* Ensure builder table has enough space */
+}
+
+.builder-cell {
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.2s, color 0.2s;
+}
+.builder-cell:hover { background: #f0f0f0; }
+.builder-cell.correct { background-color: #e8f8e9; color: #155724; border: 2px solid #28a745; }
+.builder-cell.incorrect { background-color: #f8e8e8; color: #721c24; border: 2px solid #dc3545; }
+#builder-check-btn { margin-top: 15px; }
+
+/* --- QUIZ --- */
+/* --- NEW QUIZ STYLES --- */
+.quiz-question-card { 
+    background: #fdfdfd; 
+    border: 1px solid #ddd; 
+    padding: 25px; 
+    margin: 20px 0; 
+    border-radius: 10px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03); 
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.quiz-options { display: flex; flex-direction: column; gap: 12px; margin: 15px 0; }
+
+/* Style for the options generated by JS */
+.quiz-options label { 
+    display: block;
+    background: #f8f9fa; 
+    padding: 12px; 
+    border-radius: 8px; 
+    border: 1px solid #eee; 
+    cursor: pointer; 
+    transition: all 0.2s ease-in-out; 
+}
+.quiz-options label:hover:not(.disabled) { 
+    background: #e6f0f7; 
+    border-color: #005a9c; 
+}
+.quiz-options input[type="radio"] { 
+    margin-right: 10px; 
+}
+
+/* Classes to be added by JS */
+.quiz-options label.correct {
+    background: #e8f8e9;
+    border-color: #28a745;
+    color: #155724;
+    font-weight: bold;
+}
+.quiz-options label.incorrect {
+    background: #f8e8e8;
+    border-color: #dc3545;
+    color: #721c24;
+    font-weight: bold;
+}
+.quiz-options label.disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+
+.feedback-box { 
+    display: none; 
+    padding: 15px; 
+    margin-top: 20px; 
+    border-radius: 8px; 
+    font-weight: 500; 
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+.feedback-box.correct { background: #e8f8e9; border: 2px solid #28a745; color: #155724; }
+.feedback-box.incorrect { background: #f8e8e8; border: 2px solid #dc3545; color: #721c24; }
+.feedback-box h4 { margin-top: 0; margin-bottom: 10px; }
+.feedback-box a { color: #0056b3; font-weight: bold; cursor: pointer; }
+
+#quiz-results-summary { 
+    background: #e6f0f7; 
+    padding: 20px; 
+    margin: 20px 0; 
+    border-radius: 10px; 
+    border-left: 5px solid #005a9c; 
+    text-align: center; 
+    display: none; 
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+#quiz-results-summary h3 { margin-top: 0; color: #004070; transition: color 0.3s ease; }
+
+/* --- END NEW QUIZ STYLES --- */
+
+/* --- RESOURCES --- */
+.resource-card { 
+    background: #ffffff; 
+    border: 1px solid #ddd; 
+    padding: 20px; 
+    margin: 20px 0; 
+    border-radius: 10px; 
+    border-left: 5px solid #005a9c; 
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.resource-card a { color: #005a9c; text-decoration: none; font-weight: bold; transition: color 0.3s ease; }
+.resource-card a:hover { text-decoration: underline; }
+.resource-card .cheatsheet-btn { 
+    display: inline-block; 
+    background: #005a9c; 
+    color: white; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 700; 
+    cursor: pointer; 
+    transition: all 0.3s ease; 
+}
+.resource-card .cheatsheet-btn:hover { 
+    background: #004070; 
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 10px rgba(0, 90, 156, 0.2); 
+}
+.video-placeholder { 
+    background: #343a40; 
+    color: white; 
+    padding: 60px 20px; 
+    text-align: center; 
+    border-radius: 8px; 
+    margin-top: 10px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+.video-placeholder:hover { background-color: #495057; }
+.video-placeholder p { font-size: 1.2em; font-family: 'Montserrat', sans-serif; }
+.video-placeholder-link { text-decoration: none; }
+
+/* --- MODALS --- */
+.modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1000; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; overflow-y: auto; padding: 20px 0; }
+.modal-overlay.show { display: flex; opacity: 1; }
+.modal-content { 
+    background: #ffffff; 
+    padding: 30px 40px; 
+    border-radius: 8px; 
+    max-width: 500px; 
+    width: 90%; 
+    position: relative; 
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2); 
+    transform: translateY(-20px); 
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease; 
+    margin: auto; 
+}
+.modal-content.modal-xlarge { max-width: 1100px; }
+.modal-overlay.show .modal-content { transform: translateY(0); }
+.modal-close { position: absolute; top: 10px; right: 15px; font-size: 2.2em; color: #aaa; cursor: pointer; line-height: 1; transition: color 0.3s; }
+.modal-close:hover { color: #333; }
+.modal-content h2 { border-bottom: none; padding-bottom: 0; margin-bottom: 15px; text-align: center; }
+.modal-content .about-description { font-style: italic; color: #555; text-align: center; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px; }
+.uni-logo { height: 1.5em; width: auto; vertical-align: middle; }
+.about-us-list { margin-left: 0; list-style-type: none; padding-top: 10px; }
+.about-us-list li { font-size: 1.1em; margin: 15px 0; font-weight: 700; color: #2c3e50; display: flex; align-items: center; gap: 15px; }
+.about-us-img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #eee; transition: border-color 0.3s ease; }
+
+/* --- CHEAT SHEET MODAL --- */
+.cheatsheet-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+.cheatsheet-column {
+    width: 48%;
+    min-width: 300px;
+}
+.cheatsheet-column h3 {
+    font-size: 1.4em;
+    color: #004070;
+    border-bottom: 2px solid #005a9c;
+    padding-bottom: 5px;
+    margin-top: 0;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+.cheatsheet-column h4 {
+    font-size: 1.1em;
+    color: #005a9c;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+}
+.cheatsheet-column p {
+    margin-bottom: 10px;
+    font-size: 0.95em;
+}
+.cheatsheet-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+.cheatsheet-table th, .cheatsheet-table td {
+    border: 1px solid #ddd;
+    padding: 6px;
+    text-align: center;
+}
+.cheatsheet-table th {
+    background: #f4f7f6;
+    color: #004070;
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+#cheatsheet-print-btn {
+    display: block;
+    margin: 20px auto 0 auto;
+}
+
+/* --- PRINT STYLES FOR CHEAT SHEET --- */
+@media print {
+    body.printing-cheatsheet > * {
+        display: none !important;
+    }
+    body.printing-cheatsheet #cheatsheet-modal {
+        display: block !important;
+        position: static !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-shadow: none !important;
+        background: #fff !important;
+        overflow: visible !important;
+        padding: 0 !important;
+    }
+    body.printing-cheatsheet #cheatsheet-modal .modal-content {
+        display: block !important;
+        box-shadow: none !important;
+        border: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 10px !important;
+    }
+    body.printing-cheatsheet #cheatsheet-modal .modal-close,
+    body.printing-cheatsheet #cheatsheet-modal #cheatsheet-print-btn {
+        display: none !important;
+    }
+}
+
+/* --- TOOLTIPS --- */
+.tooltip { position: relative; cursor: help; border-bottom: 2px dotted #005a9c; }
+.tooltip .tooltip-text { 
+    visibility: hidden; 
+    width: 250px; 
+    background-color: #343a40; 
+    color: #fff; 
+    text-align: center; 
+    padding: 8px; 
+    border-radius: 6px; 
+    font-size: 0.9em; 
+    font-weight: normal; 
+    line-height: 1.5; 
+    position: absolute; 
+    z-index: 10; 
+    bottom: 125%; 
+    left: 50%; 
+    margin-left: -125px; 
+    opacity: 0; 
+    transition: opacity 0.3s, background-color 0.3s, color 0.3s; 
+}
+.tooltip .tooltip-text::after { 
+    content: ""; 
+    position: absolute; 
+    top: 100%; 
+    left: 50%; 
+    margin-left: -5px; 
+    border-width: 5px; 
+    border-style: solid; 
+    border-color: #343a40 transparent transparent transparent; 
+    transition: border-color 0.3s;
+}
+.tooltip:hover .tooltip-text { visibility: visible; opacity: 1; }
+
+/* --- FOOTER (NEW) --- */
+footer { 
+    text-align: center; 
+    color: #555; /* Match header text color (muted) */
+    background: #ffffff; /* Match header background */
+    padding: 25px; 
+    margin-top: 25px; 
+    font-size: 0.9em; /* This makes it "smaller" */
+    border-radius: 8px; /* This adds "rounded corners" */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03); /* Match header shadow */
+    border-top: 4px solid #005a9c; /* Match header border (on top) */
+    margin-bottom: 20px; /* Add some space at the very bottom */
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+footer p {
+    margin-bottom: 10px; 
+}
+
+/* Style for the download button in footer */
+footer .nav-btn {
+     margin-top: 10px; 
+     background-color: #6c757d;
+     color: white;
+}
+footer .nav-btn:hover {
+     background-color: #5a6268;
+}
+
+/* --- CITATION STYLES (NEW) --- */
+.citations {
+    font-size: 0.95em; 
+    color: #555; /* Match footer text color */
+    margin-top: 15px; 
+    transition: color 0.3s ease;
+}
+.citations p {
+    margin-bottom: 5px;
+}
+.citations a {
+    color: #005a9c; /* Make links use the theme's main blue */
+    text-decoration: none;
+    word-break: break-all;
+    transition: color 0.3s ease;
+}
+.citations a:hover {
+    text-decoration: underline;
+}
+/* --- END FOOTER STYLES --- */
+
+/* --- DARK MODE STYLES --- */
+body.dark-mode {
+    color: #c9d1d9; /* Light grey text */
+    background-color: #0d1117; /* Very dark background */
+}
+
+body.dark-mode header {
+    background: #161b22; /* Darker grey */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-bottom: 4px solid #004070; /* Keep border color */
+}
+
+body.dark-mode header h1 {
+    color: #58a6ff; /* Lighter blue */
+}
+
+body.dark-mode header p {
+    color: #8b949e; /* Muted grey */
+}
+
+body.dark-mode .header-link-btn { 
+    color: #58a6ff;
+    border: 1px solid #58a6ff; 
+}
+
+body.dark-mode .header-link-btn:hover {
+    background-color: #21262d; /* Dark hover */
+}
+
+body.dark-mode .nav-buttons {
+    background-color: #161b22; /* Darker grey */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+}
+
+body.dark-mode .nav-btn {
+    background: #21262d; /* Dark grey */
+    color: #58a6ff; /* Lighter blue */
+}
+
+body.dark-mode .nav-btn:hover {
+    background: #30363d; /* Lighter dark grey */
+}
+
+body.dark-mode .nav-btn.active {
+    background: #005a9c; 
+    color: white;
+}
+
+body.dark-mode .dropdown-content {
+    background-color: #161b22;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+    border: 1px solid #30363d;
+}
+
+body.dark-mode .dropdown-item {
+    color: #58a6ff;
+}
+
+body.dark-mode .dropdown-item:hover {
+    background-color: #21262d; 
+}
+
+body.dark-mode .dropdown-item.active {
+    background-color: #004070; 
+    color: #c9d1d9;
+}
+
+body.dark-mode .content-section {
+    background: #161b22;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-top: 5px solid #005a9c;
+}
+
+body.dark-mode h2 {
+    color: #58a6ff;
+    border-bottom: 2px solid #30363d;
+}
+
+body.dark-mode h3 {
+    color: #58a6ff;
+}
+
+body.dark-mode h4 {
+    color: #c9d1d9;
+}
+
+body.dark-mode .operator-card, 
+body.dark-mode .definition, 
+body.dark-mode .example-box {
+     background: #21262d;
+     border-left: 4px solid #005a9c;
+}
+body.dark-mode .definition {
+     background: #21262d; 
+}
+ body.dark-mode .example-box {
+     background: #0d1117;
+     border-left-color: #8b949e; 
+     border: 1px solid #30363d;
+ }
+
+body.dark-mode .operator-card h4 {
+    color: #58a6ff;
+}
+
+body.dark-mode .definition strong {
+    color: #58a6ff;
+}
+
+body.dark-mode table {
+    background: #161b22;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode th, body.dark-mode td {
+    border: 1px solid #30363d;
+}
+
+body.dark-mode th {
+    background: #004070; 
+    color: #c9d1d9;
+}
+
+body.dark-mode tr:nth-child(even) {
+    background: #21262d;
+}
+
+body.dark-mode tr.highlighted {
+    background: #3e3d23 !important;
+}
+
+body.dark-mode .truth-value-true {
+    color: #3fb950;
+}
+
+body.dark-mode .truth-value-false {
+    color: #f85149;
+}
+
+body.dark-mode .interactive-table-section {
+    background: #0d1117;
+    border: 2px solid #005a9c;
+}
+
+body.dark-mode .table-controls label {
+    color: #c9d1d9;
+}
+
+body.dark-mode .builder-cell {
+    color: #c9d1d9;
+}
+body.dark-mode .builder-cell:hover { background: #30363d; }
+body.dark-mode .builder-cell.correct { background-color: #0e361a; color: #3fb950; border: 2px solid #28a745; }
+body.dark-mode .builder-cell.incorrect { background-color: #490206; color: #f85149; border: 2px solid #dc3545; }
+
+body.dark-mode .quiz-question-card { 
+    background: #21262d; 
+    border: 1px solid #30363d; 
+}
+body.dark-mode .quiz-options label { 
+    background: #0d1117; 
+    border: 1px solid #30363d; 
+    color: #c9d1d9; 
+}
+body.dark-mode .quiz-options label:hover:not(.disabled) { 
+    background: #30363d; 
+    border-color: #005a9c; 
+}
+
+body.dark-mode .quiz-options label.correct {
+    background: #0e361a;
+    border-color: #28a745;
+    color: #3fb950;
+}
+body.dark-mode .quiz-options label.incorrect {
+    background: #490206;
+    border-color: #dc3545;
+    color: #f85149;
+}
+
+body.dark-mode .feedback-box { 
+    background: #21262d;
+    border: 1px solid #30363d;
+}
+body.dark-mode .feedback-box.correct { background: #0e361a; border: 2px solid #28a745; color: #3fb950; }
+body.dark-mode .feedback-box.incorrect { background: #490206; border: 2px solid #dc3545; color: #f85149; }
+body.dark-mode .feedback-box a { color: #58a6ff; }
+
+body.dark-mode #quiz-results-summary { 
+    background: #21262d; 
+    border-left: 5px solid #005a9c; 
+}
+body.dark-mode #quiz-results-summary h3 { color: #58a6ff; }
+
+body.dark-mode .resource-card { 
+    background: #21262d; 
+    border: 1px solid #30363d; 
+    border-left: 5px solid #005a9c; 
+}
+body.dark-mode .resource-card a { color: #58a6ff; }
+
+body.dark-mode .video-placeholder { 
+    background: #30363d; 
+    color: #c9d1d9; 
+}
+body.dark-mode .video-placeholder:hover { background-color: #484f58; }
+
+
+body.dark-mode .modal-content { 
+    background: #161b22; 
+    color: #c9d1d9;
+}
+body.dark-mode .modal-close { color: #8b949e; }
+body.dark-mode .modal-close:hover { color: #c9d1d9; }
+body.dark-mode .modal-content h2 { color: #58a6ff; }
+body.dark-mode .modal-content .about-description { color: #8b949e; }
+body.dark-mode .about-us-list li { color: #c9d1d9; }
+body.dark-mode .about-us-img { border: 2px solid #30363d; }
+
+body.dark-mode .cheatsheet-column h3 {
+    color: #58a6ff;
+    border-bottom: 2px solid #005a9c;
+}
+body.dark-mode .cheatsheet-column h4 {
+    color: #58a6ff;
+}
+body.dark-mode .cheatsheet-table th, 
+body.dark-mode .cheatsheet-table td {
+    border: 1px solid #30363d;
+}
+body.dark-mode .cheatsheet-table th {
+    background: #21262d;
+    color: #58a6ff;
+}
+
+body.dark-mode .tooltip .tooltip-text { 
+    background-color: #c9d1d9; 
+    color: #0d1117; 
+}
+body.dark-mode .tooltip .tooltip-text::after { 
+    border-color: #c9d1d9 transparent transparent transparent; 
+}
+
+body.dark-mode footer { 
+    color: #8b949e; 
+    background: #161b22;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); 
+    border-top: 4px solid #005a9c; 
+}
+
+body.dark-mode footer .nav-btn {
+     background-color: #30363d;
+     color: #c9d1d9;
+}
+body.dark-mode footer .nav-btn:hover {
+     background-color: #484f58;
+}
+
+body.dark-mode .citations {
+    color: #8b949e; 
+}
+body.dark-mode .citations a {
+    color: #58a6ff; 
+}
 /* --- END DARK MODE STYLES --- */
 
 /* --- RESPONSIVE ADJUSTMENTS --- */
 @media (max-width: 768px) {
-    /* ... all responsive rules ... */
+    body {
+        padding-top: 65px; /* Adjust if nav wraps higher */
+    }
+     html {
+        scroll-padding-top: 120px; /* More space needed if nav wraps */
+     }
+    
+    .container {
+        padding: 0 15px 15px 15px;
+    }
+    
+    header {
+        padding: 20px 15px;
+        padding-top: 60px; /* More space for buttons */
+    }
+    header h1 {
+        font-size: 2.2em;
+        padding-top: 0px; /* Reset padding, header has it now */
+    }
+    header p {
+        font-size: 1.1em;
+    }
+    .header-links-container-left { left: 15px; top: 15px; }
+    .header-links-container-right { right: 15px; top: 15px; }
+    .header-link-btn {
+        font-size: 0.8em;
+        padding: 4px 8px;
+    }
+    
+    .nav-buttons {
+        padding: 10px 5px; 
+        gap: 8px;
+    }
+    .nav-btn {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+    
+    .content-section {
+        padding: 25px;
+        margin-top: 15px;
+    }
+    
+    h2 { font-size: 1.9em; }
+    h3 { font-size: 1.4em; }
+    h4 { font-size: 1.2em; }
+    
+    .operator-card, .definition, .example-box {
+        padding: 15px;
+    }
+    
+    /* Ensure dropdowns don't go off-screen */
+    .dropdown-content {
+        min-width: 200px;
+        left: 0; /* Align left */
+        transform: none; /* Reset transform */
+    }
+    .dropdown:last-child .dropdown-content {
+         right: 0; /* Align right for last child */
+         left: auto;
+    }
+    /* Specific fix for options dropdown on mobile */
+    #options-dropdown {
+        right: 0;
+        left: auto;
+        transform: none;
+    }
+
+
+    .modal-content {
+        padding: 20px;
+    }
+    .modal-content.modal-xlarge {
+         max-width: 95%; /* Allow cheat sheet to use more width */
+    }
+    .cheatsheet-content {
+         flex-direction: column; /* Stack columns vertically */
+         align-items: center; /* Center stacked columns */
+    }
+    .cheatsheet-column {
+         width: 90%; /* Let columns take most width */
+         max-width: 400px; /* Limit max width */
+         min-width: unset; /* Remove min-width */
+    }
+    
+    footer {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+     html {
+        scroll-padding-top: 140px; /* Even more space if needed */
+     }
+     body {
+        padding-top: 70px; /* May need more if nav wraps a lot */
+     }
+     header {
+         padding-top: 55px; /* Extra space for buttons */
+     }
+     header h1 { font-size: 1.8em; padding-top: 0;}
+     header p { font-size: 1em; }
+     .header-link-btn { font-size: 0.75em; padding: 3px 6px; }
+     
+     .nav-btn { font-size: 0.85em; padding: 6px 12px; }
+     
+     .content-section { padding: 20px; }
+     h2 { font-size: 1.7em; }
+     h3 { font-size: 1.3em; }
+     h4 { font-size: 1.1em; }
+     
+     .quiz-controls { gap: 10px; }
+     #submit-quiz-btn, #reset-quiz-btn { font-size: 1em; padding: 12px 20px; }
 }
