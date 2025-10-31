@@ -25,6 +25,10 @@ header {
     text-align: center;
 }
 
+header h1 {
+    color: var(--color-primary-dark);
+}
+
 nav.container {
     display: flex;
     flex-direction:row;
