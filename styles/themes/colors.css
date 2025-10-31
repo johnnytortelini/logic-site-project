@@ -1,0 +1,95 @@
+/* =======================================================
+   THEME COLORS - LIGHT MODE (Default)
+   ======================================================= */
+:root {
+    /* --- Primary & Brand Colors --- */
+    --color-primary: #005a9c;           /* Primary Blue (Borders, Links, Active) */
+    --color-primary-dark: #004070;      /* Dark Blue (Headers, Table Headers) */
+    --color-primary-light-accent: #e6f0f7; /* Light Blue Accent (Definition BG, Hover BG) */
+    --color-link-hover: #e6f0f7;        /* Specific header link hover */
+    --color-link-active: #0056b3;       /* Feedback box link */
+
+    /* --- Neutral & Background Colors --- */
+    --color-bg-body: #f4f7f6;           /* Main page background */
+    --color-bg-surface: #ffffff;        /* Header, Nav, Content Section, Footer Background */
+    --color-bg-card: #fdfdfd;           /* Quiz Question Card, Example Box */
+    --color-bg-operator-card: #fafafa;  /* Operator Card Background */
+    --color-bg-nav-btn: #e9ecef;        /* Default Nav Button Background */
+    --color-bg-nav-btn-hover: #dcdfe2;  /* Nav Button Hover Background */
+    --color-bg-table-even: #f9f9ff;     /* Table Even Row Stripe */
+    --color-bg-quiz-option: #f8f9fa;    /* Quiz Option Background */
+    --color-bg-placeholder: #343a40;    /* Video Placeholder / Tooltip Background */
+    
+    /* --- Text Colors --- */
+    --color-text-main: #2c3e50;         /* Main Body Text */
+    --color-text-muted: #555;           /* Header/Footer/Citation Text */
+    --color-text-muted-darker: #aaa;    /* Modal Close Icon */
+
+    /* --- Border & Shadow Colors --- */
+    --color-border-lightest: #eee;      /* Very light border (Dropdown, Quiz Options) */
+    --color-border-light: #ddd;         /* Table/Dropdown/Resource Card Border */
+    --color-border-grey: #e0e0e0;       /* H2 bottom border */
+    --color-border-dark: #6c757d;       /* Reset Button / Example Box Accent */
+    --color-shadow: rgba(0, 0, 0, 0.03); /* Light Shadow */
+    --color-shadow-med: rgba(0, 0, 0, 0.05); /* Medium Shadow */
+    --color-shadow-strong: rgba(0, 90, 156, 0.2); /* Active Nav Button Shadow */
+
+    /* --- System & State Colors (Success/Error/Warning) --- */
+    --color-success: #28a745;           /* Success Green (Border, Truth Value) */
+    --color-success-text: #155724;      /* Darker Success Text */
+    --color-success-bg: #e8f8e9;        /* Light Success Background */
+    --color-error: #dc3545;             /* Error Red (Border, Truth Value) */
+    --color-error-text: #721c24;        /* Darker Error Text */
+    --color-error-bg: #f8e8e8;          /* Light Error Background */
+    --color-highlight-border: #ffc107;  /* Highlight Yellow Border */
+    --color-highlight-bg: #fffacd;      /* Highlight Background */
+}
+
+
+/* =======================================================
+   THEME COLORS - DARK MODE
+   ======================================================= */
+.dark-mode {
+    /* --- Primary & Brand Colors --- */
+    --color-primary: #005a9c;           /* Primary Blue (Kept same) */
+    --color-primary-dark: #004070;      /* Dark Blue (Kept same) */
+    --color-primary-light-accent: #004070; /* Used for active dropdown/quiz results BG */
+    --color-link-hover: #21262d;        /* Header link hover in dark mode */
+    --color-link-active: #58a6ff;       /* Feedback box link in dark mode */
+
+    /* --- Neutral & Background Colors --- */
+    --color-bg-body: #0d1117;           /* Very Dark Background */
+    --color-bg-surface: #161b22;        /* Header, Nav, Content Section, Modal Background */
+    --color-bg-card: #21262d;           /* Quiz Question Card, Resource Card, Operator Card BG */
+    --color-bg-operator-card: #21262d;  /* Operator Card Background */
+    --color-bg-nav-btn: #21262d;        /* Default Nav Button Background */
+    --color-bg-nav-btn-hover: #30363d;  /* Nav Button Hover Background */
+    --color-bg-table-even: #21262d;     /* Table Even Row Stripe */
+    --color-bg-quiz-option: #0d1117;    /* Quiz Option Background */
+    --color-bg-placeholder: #30363d;    /* Video Placeholder / Button Hover */
+    
+    /* --- Text Colors --- */
+    --color-text-main: #c9d1d9;         /* Light Text Grey */
+    --color-text-muted: #8b949e;        /* Header/Footer/Citation Text */
+    --color-text-muted-darker: #8b949e; /* Modal Close Icon */
+    --color-text-accent: #58a6ff;       /* Light Blue Accent Text (Headers, Links) */
+
+    /* --- Border & Shadow Colors --- */
+    --color-border-lightest: #30363d;   /* Very light border (Used for general dark borders) */
+    --color-border-light: #30363d;      /* Table/Dropdown/Resource Card Border */
+    --color-border-grey: #30363d;       /* H2 bottom border */
+    --color-border-dark: #8b949e;       /* Example Box Accent */
+    --color-shadow: rgba(0, 0, 0, 0.2);  /* Stronger Dark Shadow */
+    --color-shadow-med: rgba(0, 0, 0, 0.3); /* Stronger Dark Shadow */
+    --color-shadow-strong: rgba(0, 90, 156, 0.2); /* Active Nav Button Shadow (Kept same) */
+
+    /* --- System & State Colors (Success/Error/Warning) --- */
+    --color-success: #3fb950;           /* Dark Mode Success Green (Text, Truth Value) */
+    --color-success-text: #3fb950;      /* Success Text */
+    --color-success-bg: #0e361a;        /* Dark Success Background */
+    --color-error: #f85149;             /* Dark Mode Error Red (Text, Truth Value) */
+    --color-error-text: #f85149;        /* Error Text */
+    --color-error-bg: #490206;          /* Dark Error Background */
+    --color-highlight-border: #28a745;  /* Highlight Yellow Border (Replaced with Green for visibility) */
+    --color-highlight-bg: #3e3d23;      /* Dark Highlight Background */
+}

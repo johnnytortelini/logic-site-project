@@ -1,0 +1,80 @@
+/* =======================================================
+   BASE TYPOGRAPHY STYLES
+   ======================================================= */
+
+body {
+    /* Base Font & Text */
+    font-family: 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7;
+    transition: color 0.3s ease;
+}
+
+/* Base Headings & Important Text */
+header h1, 
+.header-link-btn, 
+.nav-btn,
+h2, 
+h3, 
+h4,
+.action-btn,
+.reset-btn,
+.cheatsheet-table th,
+.video-placeholder p {
+    /* Used for all secondary, high-impact text */
+    font-family: 'Montserrat', sans-serif; 
+}
+
+/* Specific Element Overrides/Styles */
+
+.nav-btn,
+.resource-card .cheatsheet-btn,
+.action-btn,
+.reset-btn {
+    font-weight: 700;
+}
+
+.cheatsheet-table th,
+th {
+    font-weight: 600;
+}
+
+header h1 {
+    font-size: 2.8em;
+    font-weight: 700;
+}
+
+header p {
+    font-size: 1.2em;
+}
+
+h2 {
+    font-size: 2.2em;
+}
+
+h3 {
+    font-size: 1.6em;
+}
+
+h4 {
+    font-size: 1.3em;
+}
+
+.header-link-btn {
+    font-size: 0.9em;
+    font-weight: 700;
+}
+
+.dropdown-item {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+}
+
+/* Text weight for various components */
+.definition strong,
+.table-controls label {
+    font-weight: bold;
+}
+.builder-cell {
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
