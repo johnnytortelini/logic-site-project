@@ -26,7 +26,7 @@
 }
 
 .container.card.definition {
-    background: var(--color-primary-light-accent);
+    background: var(--color-bg-definition-card);
 }
 
 .container.card.definition strong {

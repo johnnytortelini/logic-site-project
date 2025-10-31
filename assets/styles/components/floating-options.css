@@ -1,0 +1,70 @@
+/* Container for all floating buttons */
+.floating-options {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column-reverse; /* so main button is at the bottom */
+    align-items: center;
+    gap: 10px;
+    z-index: 200;
+}
+
+/* Sub-buttons container */
+.floating-options .floating-sub-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px; /* space between main and sub-buttons */
+    opacity: 0;
+    transform: scale(0);
+    pointer-events: none; /* prevent interaction when hidden */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Main button and sub-buttons shared style */
+.floating-options .floating {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primary);
+    color: var(--color-on-primary, #fff);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+}
+
+/* Hover effect for buttons */
+.floating-options .floating:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+/* Sub-buttons smaller than main */
+.floating-options .floating-sub-buttons .floating {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+}
+
+/* When active, show and animate sub-buttons */
+.floating-options.active .floating-sub-buttons {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+/* Optional: rotate main button when toggled */
+.floating-options .floating-main {
+    transition: transform 0.3s ease;
+}
+
+.floating-options.active .floating-main {
+    transform: rotate(45deg);
+}

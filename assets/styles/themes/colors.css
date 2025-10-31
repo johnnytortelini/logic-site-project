@@ -14,6 +14,7 @@
     --color-bg-surface: #ffffff;        /* Header, Nav, Content Section, Footer Background */
     --color-bg-card: #fdfdfd;           /* Quiz Question Card, Example Box */
     --color-bg-operator-card: #fafafa;  /* Operator Card Background */
+    --color-bg-definition-card: #e6f0f7;
     --color-bg-nav-btn: #e9ecef;        /* Default Nav Button Background */
     --color-bg-nav-btn-hover: #dcdfe2;  /* Nav Button Hover Background */
     --color-bg-table-even: #f9f9ff;     /* Table Even Row Stripe */
@@ -62,6 +63,7 @@
     --color-bg-surface: #161b22;        /* Header, Nav, Content Section, Modal Background */
     --color-bg-card: #21262d;           /* Quiz Question Card, Resource Card, Operator Card BG */
     --color-bg-operator-card: #21262d;  /* Operator Card Background */
+    --color-bg-definition-card: #21262d; /* Definition Card Background */
     --color-bg-nav-btn: #21262d;        /* Default Nav Button Background */
     --color-bg-nav-btn-hover: #30363d;  /* Nav Button Hover Background */
     --color-bg-table-even: #21262d;     /* Table Even Row Stripe */
