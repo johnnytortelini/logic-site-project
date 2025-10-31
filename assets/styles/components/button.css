@@ -1,0 +1,29 @@
+.button {
+    display: inline-flex;
+    /* inline so it only takes its content width */
+    flex: 0 0 auto;
+    /* don't grow or shrink if it's used as a flex item */
+    max-width: none;
+    align-self: center;
+    /* keep it centered vertically inside nav */
+
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.button.small {
+    padding: 2px 8px;
+}
+
+.button.secondary {
+    background: var(--color-bg-nav-btn);
+    color: var(--color-primary);
+}
+
+.button:hover {
+    transform: translateY(-2px)
+}

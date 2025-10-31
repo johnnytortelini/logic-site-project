@@ -11,13 +11,10 @@ body {
 
 /* Base Headings & Important Text */
 header h1, 
-.header-link-btn, 
-.nav-btn,
+.button,
 h2, 
 h3, 
 h4,
-.action-btn,
-.reset-btn,
 .cheatsheet-table th,
 .video-placeholder p {
     /* Used for all secondary, high-impact text */
@@ -26,10 +23,8 @@ h4,
 
 /* Specific Element Overrides/Styles */
 
-.nav-btn,
-.resource-card .cheatsheet-btn,
-.action-btn,
-.reset-btn {
+.button,
+.resource-card {
     font-weight: 700;
 }
 
@@ -59,14 +54,13 @@ h4 {
     font-size: 1.3em;
 }
 
-.header-link-btn {
-    font-size: 0.9em;
-    font-weight: 700;
-}
-
 .dropdown-item {
     font-family: 'Lato', sans-serif;
     font-weight: 700;
+}
+
+.button.small {
+    font-size: 0.9em;
 }
 
 /* Text weight for various components */
@@ -85,15 +79,15 @@ h4 {
     h2 { font-size: 1.9em; }
     h3 { font-size: 1.4em; }
     h4 { font-size: 1.2em; }
-    .nav-btn { font-size: 0.9em; }
-    .header-link-btn { font-size: 0.8em; }
+    .button { font-size: 0.9em; }
+    .button.small { font-size: 0.8em; }
 }
 
 @media (max-width: 480px) {
     header h1 { font-size: 1.8em; }
     header p { font-size: 1em; }
-    .header-link-btn { font-size: 0.75em; }
-    .nav-btn { font-size: 0.85em; }
+    .button { font-size: 0.85em; }
+    .button.small { font-size: 0.75em; }
     h2 { font-size: 1.7em; }
     h3 { font-size: 1.3em; }
     h4 { font-size: 1.1em; }

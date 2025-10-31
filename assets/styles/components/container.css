@@ -1,19 +1,33 @@
-.container {
-    /* max-width: 1200px; */
-    margin: 0 auto;
-    padding: 0 20px 20px 20px;
-    background: #ffffff;
-    padding: 30px 40px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-    position: relative; 
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+/* this contains the other classes you can use with container */
+
+.container.border-bottom {
+    border-bottom: 4px solid var(--color-primary);
 }
 
 .container.border-top {
-    border-top: 4px solid #005a9c; 
+    border-top: 4px solid var(--color-primary);
 }
 
-.container.border-bottom {
-    border-bottom: 4px solid #005a9c; 
+.container.border-right {
+    border-right: 4px solid var(--color-primary);
+}
+
+.container.card {
+    box-shadow: none;
+    background: var(--color-bg-operator-card);
+    border-left: 4px solid var(--color-primary);
+}
+
+.container.card h3,
+.container.card h4 {
+    color: var(--color-primary);
+}
+
+.container.card.definition {
+    background: var(--color-primary-light-accent);
+}
+
+.container.card.definition strong {
+    color: var(--color-primary-dark);
+    transition: color 0.3s ease;
 }
