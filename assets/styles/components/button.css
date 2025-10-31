@@ -16,11 +16,6 @@
     padding: 2px 8px;
 }
 
-.button.secondary {
-    background: var(--color-bg-nav-btn);
-    color: var(--color-primary);
-}
-
 .button.download {
     background: #6c757d;
 }

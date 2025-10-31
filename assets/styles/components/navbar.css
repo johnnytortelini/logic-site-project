@@ -1,0 +1,99 @@
+nav.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 0 20px;
+    background: transparent;
+    box-shadow: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav.container.stuck {
+    padding: 10px 20px;
+    border-radius: 0 0 8px 8px;
+    background: var(--color-bg-surface);
+    box-shadow: 0 2px 10px var(--color-shadow-strong);
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    transition: max-height 0.3s ease;
+}
+
+/* Hamburger button */
+.hamburger {
+    display: none;
+    /* hidden on desktop */
+    font-size: 1.6rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+    z-index: 110;
+    /* above dropdown */
+}
+
+.nav-links .button {
+    background-color: var(--color-bg-nav-btn);
+    color: var(--color-primary);
+}
+
+.nav-links .button.active {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+/* ---------------------------- */
+/* MOBILE RESPONSIVE STYLES */
+/* ---------------------------- */
+@media (max-width: 768px) {
+
+    /* Navbar container adjustments already present */
+    nav.container {
+        justify-content: space-between;
+        background: var(--color-bg-surface);
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: var(--color-bg-surface);
+        box-shadow: 0 6px 10px var(--color-shadow-med);
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    /* === OVERRIDE GLOBAL .button FOR MOBILE NAV === */
+    .nav-links .button {
+        display: flex !important;
+        flex: 1 1 100% !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 12px 20px;
+        text-align: left;
+        box-sizing: border-box;
+        border-radius: 0;
+    }
+
+    /* Optional: hover effect */
+    .nav-links .button:hover {
+        transform: none;
+        /* remove translate if undesired on mobile */
+    }
+}
