@@ -1,6 +1,6 @@
-// This will be injected from main.js to break the circular dependency
-let switchTabCallback = null; 
+// Quiz Functionality
 
+// Quiz questions data
 const quizQuestions = [
     {
         question: "What is the primary purpose of logic in mathematics and computer science?",
@@ -122,7 +122,7 @@ const quizQuestions = [
 let currentQuizQuestionIndex = 0;
 let quizScore = 0;
 
-// Get references to the new quiz elements
+// Get references to quiz elements
 const quizContainer = document.getElementById('quiz-container');
 const quizSummaryBox = document.getElementById('quiz-results-summary');
 const questionNumberEl = document.getElementById('question-number');
@@ -131,20 +131,55 @@ const optionsContainerEl = document.getElementById('quiz-options-container');
 const feedbackBoxEl = document.getElementById('quiz-feedback');
 const nextButtonEl = document.getElementById('next-question-btn');
 
-export function startQuiz() {
+function startQuiz() {
     currentQuizQuestionIndex = 0;
     quizScore = 0;
     
-    if(quizSummaryBox) quizSummaryBox.style.display = 'none';
-    if(quizContainer) quizContainer.style.display = 'block';
+    quizSummaryBox.style.display = 'none';
+    quizContainer.style.display = 'block';
     
     loadQuizQuestion();
 }
 
-// --- BUG FIX ---
-// This function now just processes the answer. It's called by the new event listener.
-function processQuizAnswer(selectedValue, selectedLabel) {
-    // Disable all options to prevent re-answering
+function loadQuizQuestion() {
+    // Reset state
+    feedbackBoxEl.style.display = 'none';
+    nextButtonEl.style.display = 'none';
+    optionsContainerEl.innerHTML = '';
+
+    if (currentQuizQuestionIndex >= quizQuestions.length) {
+        showQuizSummary();
+        return;
+    }
+
+    const question = quizQuestions[currentQuizQuestionIndex];
+    
+    questionNumberEl.textContent = `Question ${currentQuizQuestionIndex + 1}/${quizQuestions.length}`;
+    questionTextEl.innerHTML = question.question;
+
+    question.options.forEach((option, index) => {
+        const optionValue = option.charAt(0);
+        const optionId = `q${currentQuizQuestionIndex}_${optionValue}`;
+        
+        const label = document.createElement('label');
+        label.htmlFor = optionId;
+        
+        const radio = document.createElement('input');
+        radio.type = 'radio';
+        radio.name = `q${currentQuizQuestionIndex}`;
+        radio.id = optionId;
+        radio.value = optionValue;
+        
+        label.appendChild(radio);
+        label.appendChild(document.createTextNode(` ${option}`));
+        
+        label.addEventListener('click', () => selectQuizAnswer(optionValue, label));
+        optionsContainerEl.appendChild(label);
+    });
+}
+
+function selectQuizAnswer(selectedValue, selectedLabel) {
+    // Disable all options
     optionsContainerEl.querySelectorAll('label').forEach(label => {
         label.classList.add('disabled');
         label.querySelector('input').disabled = true;
@@ -158,7 +193,8 @@ function processQuizAnswer(selectedValue, selectedLabel) {
         selectedLabel.classList.add('correct');
         feedbackBoxEl.innerHTML = '<h4><span class="truth-value-true">✓ Correct!</span></h4><p>Great job!</p>';
         feedbackBoxEl.className = 'feedback-box correct';
-
+        feedbackBoxEl.style.display = 'block';
+        nextButtonEl.style.display = 'inline-block';
     } else {
         // Incorrect
         selectedLabel.classList.add('incorrect');
@@ -170,53 +206,9 @@ function processQuizAnswer(selectedValue, selectedLabel) {
                 <a class="resource-link">check out the 'Resources' tab</a>.
             </p>`;
         feedbackBoxEl.className = 'feedback-box incorrect';
+        feedbackBoxEl.style.display = 'block';
+        nextButtonEl.style.display = 'inline-block';
     }
-
-    // Show feedback and 'Next' button
-    feedbackBoxEl.style.display = 'block';
-    nextButtonEl.style.display = 'inline-block';
-}
-
-
-function loadQuizQuestion() {
-    // Reset state
-    if(feedbackBoxEl) feedbackBoxEl.style.display = 'none';
-    if(nextButtonEl) nextButtonEl.style.display = 'none';
-    if(optionsContainerEl) optionsContainerEl.innerHTML = ''; // Clear old options
-
-    if (currentQuizQuestionIndex >= quizQuestions.length) {
-        showQuizSummary();
-        return;
-    }
-
-    const question = quizQuestions[currentQuizQuestionIndex];
-    
-    if(questionNumberEl) questionNumberEl.textContent = `Question ${currentQuizQuestionIndex + 1}/${quizQuestions.length}`;
-    if(questionTextEl) questionTextEl.innerHTML = question.question; // Use innerHTML to render <strong> tags
-
-    question.options.forEach((option, index) => {
-        const optionValue = option.charAt(0); // 'a', 'b', 'c', etc.
-        const optionId = `q${currentQuizQuestionIndex}_${optionValue}`;
-        
-        const label = document.createElement('label');
-        label.htmlFor = optionId;
-        
-        const radio = document.createElement('input');
-        radio.type = 'radio';
-        radio.name = `q${currentQuizQuestionIndex}`; // This is correct
-        radio.id = optionId;
-        radio.value = optionValue;
-        
-        label.appendChild(radio);
-        label.appendChild(document.createTextNode(` ${option}`)); // Add the text content
-        
-        // --- BUG FIX ---
-        // We REMOVE the click listener from the label.
-        // label.addEventListener('click', () => selectQuizAnswer(optionValue, label)); // OLD BAD CODE
-        // --- END BUG FIX ---
-        
-        if(optionsContainerEl) optionsContainerEl.appendChild(label);
-    });
 }
 
 function loadNextQuestion() {
@@ -224,8 +216,10 @@ function loadNextQuestion() {
     loadQuizQuestion();
 }
 
+nextButtonEl.addEventListener('click', loadNextQuestion);
+
 function showQuizSummary() {
-    if(quizContainer) quizContainer.style.display = 'none';
+    quizContainer.style.display = 'none';
     
     let summaryMessage = `You scored <strong>${quizScore}</strong> out of <strong>${quizQuestions.length}</strong>.`;
     
@@ -237,56 +231,12 @@ function showQuizSummary() {
         summaryMessage += " Keep reviewing and try again! 📖";
     }
 
-    if(quizSummaryBox) {
-        quizSummaryBox.innerHTML = `
-            <h3>Quiz Complete!</h3>
-            <p>${summaryMessage}</p>
-            <button id="restart-quiz-btn" class="action-btn" style="margin-top: 20px;">Restart Quiz</button>
-        `;
-        quizSummaryBox.style.display = 'block';
-        
-        // Add listener to the new restart button
-        document.getElementById('restart-quiz-btn').addEventListener('click', startQuiz);
-    }
-}
-
-/**
- * Initializes the quiz listeners.
- * @param {function} navCallback - The switchTab function.
- */
-export function initQuiz(navCallback) {
-    switchTabCallback = navCallback;
-
-    if(nextButtonEl) nextButtonEl.addEventListener('click', loadNextQuestion);
-
-    // --- BUG FIX ---
-    // We add ONE 'change' listener to the entire options container.
-    // This event fires only when a radio button's checked state changes.
-    if (optionsContainerEl) {
-        optionsContainerEl.addEventListener('change', (event) => {
-            // Check if the element that changed was a radio button
-            if (event.target.type === 'radio') {
-                const selectedValue = event.target.value;
-                // Find the <label> that contains this radio button
-                const selectedLabel = event.target.closest('label');
-                
-                // Process the answer
-                if (selectedValue && selectedLabel) {
-                    processQuizAnswer(selectedValue, selectedLabel);
-                }
-            }
-        });
-    }
-    // --- END BUG FIX ---
-
-    // This listener was global, now it's scoped to the quiz module
-    document.body.addEventListener('click', function(e) {
-        if (e.target.classList.contains('resource-link')) {
-            if (switchTabCallback) {
-                switchTabCallback('resources');
-                 const navHeight = document.querySelector('.nav-buttons').offsetHeight;
-                 window.scrollTo({ top: document.getElementById('resources').offsetTop - navHeight - 10, behavior: 'smooth' });
-            }
-        }
-    });
+    quizSummaryBox.innerHTML = `
+        <h3>Quiz Complete!</h3>
+        <p>${summaryMessage}</p>
+        <button id="restart-quiz-btn" class="action-btn" style="margin-top: 20px;">Restart Quiz</button>
+    `;
+    quizSummaryBox.style.display = 'block';
+    
+    document.getElementById('restart-quiz-btn').addEventListener('click', startQuiz);
 }
